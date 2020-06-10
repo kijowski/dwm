@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while true; do
+  LOCALTIME=$(date "+%F %R %Z")
+  NYTIME=$(TZ=America/New_York date "+%R %Z")
+  # VOL=$(amixer get Master | grep "Right:" | awk -F'[][]' '{ print $2 }')
+  TOPTODO=$(todo.sh -p ls | head -n 1 | cut -d' ' -f3-)
+  xsetroot -name "   $TOPTODO |   $LOCALTIME / $NYTIME"
+  sleep 1m
+done
+

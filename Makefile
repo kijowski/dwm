@@ -40,12 +40,21 @@ install: all
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
+	# Copy init and statusbar scripts
+	cp -f dwm-init ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-init
+	cp -f dwm-statusbar ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-statusbar
+	# Copy dwm desktop entry
+	cp -f dwm.desktop ${DESTDIR}${XSESSIONSPREFIX}/
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
+		${DESTDIR}${PREFIX}/bin/dwm-init\
+		${DESTDIR}${PREFIX}/bin/dwm-dwm-statusbar\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
 
 .PHONY: all options clean dist install uninstall

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=dwm
+Comment=dwm window manager
+Encoding=UTF-8
+Exec=dwm-init
